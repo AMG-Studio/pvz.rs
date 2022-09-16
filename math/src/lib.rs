@@ -26,6 +26,7 @@ macro_rules! def_vec {
       impl Add<$name> for $name {
         type Output = Self;
 
+        #[inline]
         fn add(self, rhs: Self) -> Self::Output {
           $name {
             $(
@@ -38,6 +39,7 @@ macro_rules! def_vec {
       impl Sub<$name> for $name {
         type Output = Self;
 
+        #[inline]
         fn sub(self, rhs: Self) -> Self::Output {
           $name {
             $(
@@ -50,6 +52,7 @@ macro_rules! def_vec {
       impl Mul<$ty> for $name {
         type Output = Self;
 
+        #[inline]
         fn mul(self, rhs: $ty) -> Self::Output {
           $name {
             $(
@@ -62,6 +65,7 @@ macro_rules! def_vec {
       impl Div<$ty> for $name {
         type Output = Self;
 
+        #[inline]
         fn div(self, rhs: $ty) -> Self {
           $name {
             $(
