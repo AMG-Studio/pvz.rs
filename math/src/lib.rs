@@ -1,80 +1,119 @@
 #![allow(clippy::derive_partial_eq_without_eq)]
 
-pub mod f32;
-pub mod isize;
-pub mod usize;
+pub mod vec2;
+pub mod vec3;
+pub mod vec4;
 
 #[macro_export]
-macro_rules! def_vec {
-  { $( ( $name:ident, $ty:ty, $( $m:ident ),+ ) ),* } => {
-    $(
-      #[derive(Clone, Debug, PartialEq)]
-      pub struct $name {
+macro_rules! impl_vec {
+  { $name:ident, $( $m:ident ),* } => {
+    impl<T> $name<T> {
+      pub fn new($( $m: T ),*) -> Self {
+        $name {
+          $( $m ),*
+        }
+      }
+
+      pub fn map<U>(
+        self,
+        map_fn: impl Fn($name<T>) -> $name<U>
+      ) -> $name<U> {
+        map_fn(self)
+      }
+    }
+
+    impl<T: PartialEq + PartialOrd> PartialEq for $name<T> {
+      fn eq(&self, other: &Self) -> bool {
+        self.partial_cmp(other).expect("Failed to compare").is_eq()
+      }
+    }
+
+    impl<T: PartialEq + PartialOrd> PartialOrd for $name<T> {
+      fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         $(
-          $m: $ty
-        ),+
-      }
-
-      impl $name {
-        pub fn new($( $m: $ty ),+) -> Self {
-          $name {
-            $( $m ),+
+          if self.$m >= other.$m {
+            return Some(Ordering::Greater);
           }
+        )*
+        $(
+          if self.$m != other.$m {
+            return Some(Ordering::Less);
+          }
+        )*
+        Some(Ordering::Equal)
+      }
+    }
+
+    impl<T: Add<Output = T>> Add<Self> for $name<T> {
+      type Output = $name<T>;
+
+      fn add(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m + rhs.$m
+          ),*
         }
       }
+    }
 
-      impl Add<$name> for $name {
-        type Output = Self;
+    impl<T: Sub<Output = T>> Sub<Self> for $name<T> {
+      type Output = $name<T>;
 
-        #[inline]
-        fn add(self, rhs: Self) -> Self::Output {
-          $name {
-            $(
-              $m: self.$m + rhs.$m
-            ),+
-          }
+      fn sub(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m - rhs.$m
+          ),*
         }
       }
+    }
 
-      impl Sub<$name> for $name {
-        type Output = Self;
+    impl<T: Mul<Output = T>> Mul<Self> for $name<T> {
+      type Output = $name<T>;
 
-        #[inline]
-        fn sub(self, rhs: Self) -> Self::Output {
-          $name {
-            $(
-              $m: self.$m - rhs.$m
-            ),+
-          }
+      fn mul(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m * rhs.$m
+          ),*
         }
       }
+    }
 
-      impl Mul<$ty> for $name {
-        type Output = Self;
+    impl<T: Mul<Output = T> + Copy> Mul<T> for $name<T> {
+      type Output = $name<T>;
 
-        #[inline]
-        fn mul(self, rhs: $ty) -> Self::Output {
-          $name {
-            $(
-              $m: self.$m * rhs
-            ),+
-          }
+      fn mul(self, rhs: T) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m * rhs
+          ),*
         }
       }
+    }
 
-      impl Div<$ty> for $name {
-        type Output = Self;
+    impl<T: Div<Output = T>> Div<Self> for $name<T> {
+      type Output = $name<T>;
 
-        #[inline]
-        fn div(self, rhs: $ty) -> Self {
-          $name {
-            $(
-              $m: self.$m / rhs
-            ),+
-          }
+      fn div(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m / rhs.$m
+          ),*
         }
       }
-    )*
+    }
+
+    impl<T: Div<Output = T> + Copy> Div<T> for $name<T> {
+      type Output = $name<T>;
+
+      fn div(self, rhs: T) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m / rhs
+          ),*
+        }
+      }
+    }
   }
 }
-
