@@ -12,8 +12,10 @@ A new member came: [onion27](https://github.com/onion27) - Programmer
 
 The project creator *wgxh-cli* discussed with members. Eventually, the project roadmap determined as following:
 
-> Inherit from PVZ 1, but we may be the greatest developers.
+> Inherit from PVZ 1, but we may be the greatest team.
+>
 > To help players to play conveniently, we have plugin system, this means player can change game content freely.
+>
 > And most contents of PVZ 1 will be changed in this version. Covers game properties, entity textures and UI and so on.
 
 Hope for us!
