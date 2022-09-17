@@ -6,7 +6,7 @@ Created on 2022. 9. 17
 
 1. New member
 
-A new member came: ![https://github.com/onion27](onion27) - Programmer
+A new member came: [onion27](https://github.com/onion27) - Programmer
 
 2. Project theme finally determined
 
@@ -22,7 +22,7 @@ Hope for us!
 
 AMG studio borned with three initial members:
 
-1. ![https://github.com/wgxh-cli](wgxh-cli) - Programmer
-2. ![https://github.com/Rinsako](Rinsako) - Art designer
-3. ![https://github.com/xiaowanggua](xwg) - Programmer
+1. [wgxh-cli](https://github.com/wgxh-cli) - Programmer
+2. [Rinsako](https://github.com/Rinsako) - Art designer
+3. [xwg](https://github.com/xiaowanggua) - Programmer
 
