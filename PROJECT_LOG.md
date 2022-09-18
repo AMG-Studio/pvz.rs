@@ -2,7 +2,18 @@
 
 Created on 2022. 9. 17
 
-## 2022. 9 .17
+## 2022. 9. 18
+
+1. The member number reduced to 4
+
+Since of some personality problems, Kicked **onion27** from the team.
+
+3. Two new members came.
+
+- [qyf157](https://github.com/qyf157) - Art designer
+- [lucas](about:blank) - Internal Gamer (he doesn't have github accout)
+
+## 2022. 9. 17
 
 1. New member
 
