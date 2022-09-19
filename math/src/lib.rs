@@ -1,10 +1,12 @@
 #![allow(clippy::derive_partial_eq_without_eq)]
+#![allow(dead_code)] // Because this is an unused library yet and may contain unused codes.
 
 pub mod vec2;
 pub mod vec3;
 pub mod vec4;
 pub mod point;
 
+// ISSUE #__READY_TO_FILL__#: export or include? 
 #[macro_export]
 macro_rules! impl_vec {
   { $name:ident, $( $m:ident ),* } => {
