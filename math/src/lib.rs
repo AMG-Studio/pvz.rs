@@ -6,7 +6,7 @@ pub mod vec3;
 pub mod vec4;
 pub mod point;
 
-// ISSUE #__READY_TO_FILL__#: export or include? 
+// ISSUE #4: export or include? 
 #[macro_export]
 macro_rules! impl_vec {
   { $name:ident, $( $m:ident ),* } => {
