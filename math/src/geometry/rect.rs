@@ -118,7 +118,19 @@ impl Rect {
 }
 
 impl Polygon for Rect {
+
   fn points(&self) -> Vec<Point> {
-    vec![]
+    vec![
+      self.left_top(),
+      self.right_top(),
+      self.right_bottom(),
+      self.left_bottom(),
+    ]
   }
+
+  /// An optimized hit test especially implemented for rectangles.
+  fn is_point_inside(&self, p: &Point) -> bool {
+    ((self.point.x)..=(self.point.x + self.size.x)).contains(&p.x) && ((self.point.y)..=(self.point.y + self.size.y)).contains(&p.y)
+  }
+
 }
