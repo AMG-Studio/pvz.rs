@@ -6,3 +6,4 @@ pub use crate::point::Point;
 
 pub mod line;
 pub mod polygon;
+pub mod rect;

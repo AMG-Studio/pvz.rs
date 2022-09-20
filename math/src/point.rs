@@ -1,6 +1,7 @@
 //! The point module supports more advanced operations for 2d points in a 2d coordinate system.
 
-//! The point type refers to an 2d vector with f64.
+/// The point type refers to an 2d vector with f64.
+/// We use the left-up as the origin of the coordinate system.
 pub type Point = crate::vec2::Vec2<f64>;
 
 impl Point {
