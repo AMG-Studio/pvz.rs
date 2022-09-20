@@ -5,6 +5,7 @@ pub mod vec2;
 pub mod vec3;
 pub mod vec4;
 pub mod point;
+pub mod geometry;
 
 // ISSUE #4: export or include? 
 #[macro_export]

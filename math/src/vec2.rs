@@ -7,6 +7,7 @@ use std::ops::{
 use std::cmp::Ordering;
 use crate::impl_vec;
 
+#[derive(Clone)]
 pub struct Vec2<T> {
   pub x: T,
   pub y: T,
