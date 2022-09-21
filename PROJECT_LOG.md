@@ -2,6 +2,9 @@
 
 Created on 2022. 9. 17
 
+## 2022. 9. 21
+1. Added some syntax sugar.
+
 ## 2022. 9. 20
 
 1. Added some basic support for geometric calculations in the `math` library. Including:
