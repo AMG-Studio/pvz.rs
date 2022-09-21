@@ -5,7 +5,7 @@ use crate::{vec2::Vec2, vec4::Vec4};
 use super::{polygon::Polygon, Point};
 
 /// A rectangle.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Rect {
   /// The start point.
   point: Point,

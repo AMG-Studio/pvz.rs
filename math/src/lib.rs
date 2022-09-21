@@ -6,6 +6,7 @@ pub mod vec3;
 pub mod vec4;
 pub mod point;
 pub mod geometry;
+pub mod sugar;
 
 // ISSUE #4: export or include? 
 #[macro_export]
@@ -35,12 +36,12 @@ macro_rules! impl_vec {
     impl<T: PartialEq + PartialOrd> PartialOrd for $name<T> {
       fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         $(
-          if self.$m >= other.$m {
+          if self.$m > other.$m { // Original is comparing by ">=" but will have bugs when testing equality
             return Some(Ordering::Greater);
           }
         )*
         $(
-          if self.$m != other.$m {
+          if self.$m < other.$m { // Original is comparing by "!=" but will have bugs when testing equality
             return Some(Ordering::Less);
           }
         )*

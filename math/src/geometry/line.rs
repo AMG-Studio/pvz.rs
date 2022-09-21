@@ -4,7 +4,7 @@ use super::Point;
 
 /// An abstraction of a geometric line.
 /// Store with two vectors, which is the start and the end point of the line, respectively.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Line {
 
   /// The start point of the line.
