@@ -6,7 +6,6 @@
 pub type Point = crate::vec::vec2::Vec2<f64>;
 
 impl Point {
-
   /// Transform the point to a rotated coordinate system.
   /// Parameter `rad` are in radians. The new coordinate system will be rotate from its origin to angle `rad`.
   fn rotate(&self, rad: f64) -> Point {
@@ -29,5 +28,4 @@ impl Point {
     let new_y = self.y * sy;
     Point::new(new_x, new_y)
   }
-
 }

@@ -1,8 +1,8 @@
 //! This module contains calculations about rectangles.
 
-use crate::{vec::vec2::*, vec::vec4::*};
-use crate::geometry::Line;
 use super::{polygon::Polygon, Point};
+use crate::geometry::Line;
+use crate::{vec::vec2::*, vec::vec4::*};
 
 /// A rectangle.
 #[derive(Clone, Debug)]
@@ -120,7 +120,6 @@ impl Rect {
 }
 
 impl Polygon for Rect {
-
   fn points(&self) -> Vec<Point> {
     vec![
       self.left_top(),
@@ -131,12 +130,12 @@ impl Polygon for Rect {
   }
 
   fn edges(&self) -> Vec<Line> {
-      todo!()
+    todo!()
   }
 
   /// An optimized hit test especially implemented for rectangles.
   fn is_point_inside(&self, p: &Point) -> bool {
-    ((self.point.x)..=(self.point.x + self.size.x)).contains(&p.x) && ((self.point.y)..=(self.point.y + self.size.y)).contains(&p.y)
+    ((self.point.x)..=(self.point.x + self.size.x)).contains(&p.x)
+      && ((self.point.y)..=(self.point.y + self.size.y)).contains(&p.y)
   }
-
 }

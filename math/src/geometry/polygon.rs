@@ -46,5 +46,4 @@ pub trait Polygon {
 
     wn_pn_poly(p, &self.edges()) != 0
   }
-
 }

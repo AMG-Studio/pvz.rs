@@ -1,11 +1,6 @@
-use std::ops::{
-  Add,
-  Sub,
-  Mul,
-  Div,
-};
-use std::cmp::Ordering;
 use crate::impl_vec;
+use std::cmp::Ordering;
+use std::ops::{Add, Div, Mul, Sub};
 
 #[derive(Debug)]
 pub struct Vec3<T> {
@@ -17,4 +12,3 @@ pub struct Vec3<T> {
 impl_vec! {
   Vec3, x, y, z
 }
-

@@ -1,5 +1,5 @@
-use math::vec2::*;
 use bevy_ecs::prelude::*;
+use math::vec2::*;
 
 #[derive(Component, Debug)]
 pub struct Velocity {

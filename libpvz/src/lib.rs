@@ -3,10 +3,7 @@ pub mod plants;
 pub mod zombies;
 
 use bevy_ecs::prelude::*;
-use bevy_time::{
-  prelude::*,
-  FixedTimesteps,
-};
+use bevy_time::{prelude::*, FixedTimesteps};
 
 pub struct Game {
   pub world: World,
@@ -21,9 +18,6 @@ impl Game {
 
     let schedule = Schedule::default();
 
-    Game {
-      world,
-      schedule,
-    }
+    Game { world, schedule }
   }
 }

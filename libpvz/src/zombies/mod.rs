@@ -1,6 +1,6 @@
+use crate::marker::*;
 use bevy_ecs::prelude::*;
 use bevy_time::prelude::*;
-use crate::marker::*;
 use math::vec2::*;
 
 #[derive(Bundle, Debug)]
@@ -33,6 +33,5 @@ pub fn zombies_movement(
   mut query: Query<(&Velocity, &mut Position), With<Zombie>>,
   time: Res<Time>,
 ) {
-  for (v, mut p) in query.iter_mut() {
-  }
+  for (v, mut p) in query.iter_mut() {}
 }

@@ -32,8 +32,8 @@ mod test {
 
   #[test]
   fn test_sugar() {
-    let a = vec2![ 1, 2 ];
-    let b = vec4![ 1, 2, 3, 4 ];
+    let a = vec2![1, 2];
+    let b = vec4![1, 2, 3, 4];
     assert_eq!(a, (1, 2).to_vec2());
     assert_eq!(b, (1, 2, 3, 4).to_vec4());
     let c = line![ vec2![ 1.0, 2.0 ] => vec2![ 3.0, 4.0 ] ];
