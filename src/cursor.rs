@@ -18,7 +18,6 @@ fn move_cursor(windows: Res<Windows>, mut cursor_query: Query<(&Cursor, &mut Tra
     let window = windows.get_primary().unwrap();
     if let Some(position) = window.cursor_position() {
         let (_, mut transform) = cursor_query.single_mut();
-        let abs_pos = Vec3::new()
         transform.translation = Vec3::new(position.x - window.width() / 2.,  position.y - window.height() / 2., transform.translation.z);
     }
 }
