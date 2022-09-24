@@ -3,12 +3,14 @@ use pvz::camera::PVZCameraPlugin;
 use pvz::cursor::PVZCursorPlugin;
 use pvz::debug::PVZDebugPlugin;
 
+const SIZE: f32 = 50.;
+
 fn main() {
     App::new()
         .insert_resource(WindowDescriptor {
             title: "PVZ".to_string(),
-            width: 600.,
-            height: 400.,
+            width: SIZE * 16.,
+            height: SIZE * 9.,
             cursor_visible: false,
             ..Default::default()
         })
