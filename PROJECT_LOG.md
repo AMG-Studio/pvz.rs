@@ -2,23 +2,9 @@
 
 Created on 2022. 9. 17
 
-## 2022. 9. 21
-1. Added some syntax sugar.
-
-## 2022. 9. 20
-
-1. Added some basic support for geometric calculations in the `math` library. Including:
-- Data structure for lines, points (a type alias of `Vec2`), polygons.
-- For lines, supports calculating the length of the line by simply calling a method `len()`.
-- For polygons, supports detecting if a point is in the polygon or not. The default implementation use the **Winding Number Algorithm** to support any polygons. Rectangles have their own ways to do the hit test more efficiently, so I overrided the method for them.
-
 ## 2022. 9. 18
 
-1. The member number reduced to 4
-
-Since of some personality problems, Kicked **onion27** from the team.
-
-2. Two new members came.
+1. Two new members came.
 
 - [qyf157](https://github.com/qyf157) - Art designer
 - [lucas](about:blank) - Internal Gamer (he doesn't have github accout)

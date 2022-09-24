@@ -120,5 +120,77 @@ macro_rules! impl_vec {
         }
       }
     }
+
+    impl<T: Add<Output = T> + Copy> Add<Self> for &$name<T> {
+      type Output = $name<T>;
+
+      fn add(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m + rhs.$m
+          ),*
+        }
+      }
+    }
+
+    impl<T: Sub<Output = T> + Copy> Sub<Self> for &$name<T> {
+      type Output = $name<T>;
+
+      fn sub(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m - rhs.$m
+          ),*
+        }
+      }
+    }
+
+    impl<T: Mul<Output = T> + Copy> Mul<Self> for &$name<T> {
+      type Output = $name<T>;
+
+      fn mul(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m * rhs.$m
+          ),*
+        }
+      }
+    }
+
+    impl<T: Mul<Output = T> + Copy> Mul<T> for &$name<T> {
+      type Output = $name<T>;
+
+      fn mul(self, rhs: T) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m * rhs
+          ),*
+        }
+      }
+    }
+
+    impl<T: Div<Output = T> + Copy> Div<Self> for &$name<T> {
+      type Output = $name<T>;
+
+      fn div(self, rhs: Self) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m / rhs.$m
+          ),*
+        }
+      }
+    }
+
+    impl<T: Div<Output = T> + Copy> Div<T> for &$name<T> {
+      type Output = $name<T>;
+
+      fn div(self, rhs: T) -> Self::Output {
+        $name {
+          $(
+            $m: self.$m / rhs
+          ),*
+        }
+      }
+    }
   }
 }

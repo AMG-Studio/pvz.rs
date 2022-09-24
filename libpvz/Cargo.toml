@@ -1,0 +1,12 @@
+[package]
+name = "libpvz"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy_ecs = "0.8.1"
+bevy_time = "0.8.1"
+math = { version = "0.1.0", path = "../math" }
+
