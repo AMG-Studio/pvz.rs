@@ -3,6 +3,17 @@ name = "pvz"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = [
+  "math",
+  "libpvz",
+]
 
 [dependencies]
+image = "0.24.3"
+math = { version = "0.1.0", path = "math" }
+pollster = "0.2.5"
+serde = "1.0.144"
+serde_json = "1.0.85"
+wgpu = "0.13.1"
+winit = "0.27.3"

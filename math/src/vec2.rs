@@ -7,9 +7,19 @@ use std::ops::{
 use std::cmp::Ordering;
 use crate::impl_vec;
 
+#[derive(Debug)]
 pub struct Vec2<T> {
   pub x: T,
   pub y: T,
+}
+
+impl<T: Copy> Clone for Vec2<T> {
+  fn clone(&self) -> Self {
+    Vec2 {
+      x: self.x,
+      y: self.y
+    }
+  }
 }
 
 impl<T> From<(T, T)> for Vec2<T> {
