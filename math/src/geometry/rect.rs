@@ -131,12 +131,7 @@ impl Polygon for Rect {
   }
 
   fn edges(&self) -> Vec<Line> {
-    vec![
-      line![self.left_top() => self.right_top()],
-      line![self.right_top() => self.right_bottom()],
-      line![self.right_bottom() => self.left_bottom()],
-      line![self.left_bottom() => self.left_top()],
-    ]
+      todo!()
   }
 
   /// An optimized hit test especially implemented for rectangles.
