@@ -2,7 +2,8 @@
 
 /// The point type refers to an 2d vector with f64.
 /// We use the left-up as the origin of the coordinate system.
-pub type Point = crate::vec2::Vec2<f64>;
+/// [changes from wgxh-cli]: Use of left-bottom origin is convenient.
+pub type Point = crate::vec::vec2::Vec2<f64>;
 
 impl Point {
 

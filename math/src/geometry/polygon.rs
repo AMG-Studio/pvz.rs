@@ -4,9 +4,11 @@ use super::{line::Line, Point};
 
 /// The polygon trait.
 pub trait Polygon {
-  /// Should returns all the points of the polygon in the stroking order.
-  /// For example, for a rectangle it should return the following points in the following order: left-top, right-top, right-bottom, left-bottom.
+  /// Returns all the points of the polygon.
   fn points(&self) -> Vec<Point>;
+
+  /// Returns all the edges of the polygon.
+  fn edges(&self) -> Vec<Line>;
 
   /// Check if the given point is inside the polygon.
   /// The default algorithm is **Winding Numbers**.
@@ -42,33 +44,7 @@ pub trait Polygon {
       wn
     }
 
-    wn_pn_poly(p, &self.lines()) != 0
+    wn_pn_poly(p, &self.edges()) != 0
   }
 
-  /// Return the lines of the polygon in the stroking order.
-  fn lines(&self) -> Vec<Line> {
-    let points = self.points();
-    if points.len() <= 1 {
-      // Check if the points is more than 1.
-      return vec![];
-    }
-    let mut result = vec![];
-    let mut last = None;
-    for i in &points {
-      if last.is_none() {
-        // The first point.
-        last = Some(i);
-        continue;
-      } else {
-        // Connect the current point with the previous point.
-        result.push(Line::new(&i, &last.unwrap().clone()));
-        last = Some(i);
-      }
-    }
-    if points.len() >= 3 {
-      // Connect the last point with the first point.
-      result.push(Line::new(points.last().unwrap(), &points[0]));
-    }
-    result
-  }
 }
