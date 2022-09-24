@@ -1,7 +1,7 @@
 //! This module contains calculations about rectangles.
 
-use crate::{vec2::Vec2, vec4::Vec4};
-
+use crate::{vec::vec2::*, vec::vec4::*};
+use crate::geometry::Line;
 use super::{polygon::Polygon, Point};
 
 /// A rectangle.
@@ -77,18 +77,20 @@ impl RectBuilder {
   }
 }
 
-impl Rect {
+impl Default for Rect {
   /// Construct an empty rectangle.
-  pub fn new() -> Rect {
+  fn default() -> Rect {
     Rect {
       point: Point::new(0.0, 0.0),
       size: Vec2::new(0.0, 0.0),
     }
   }
+}
 
+impl Rect {
   /// Construct a rectangle from builder.
   pub fn builder() -> RectBuilder {
-    RectBuilder { r: Self::new() }
+    RectBuilder { r: Self::default() }
   }
 
   /// Get the left-top position of the rectangle.
@@ -125,6 +127,15 @@ impl Polygon for Rect {
       self.right_top(),
       self.right_bottom(),
       self.left_bottom(),
+    ]
+  }
+
+  fn edges(&self) -> Vec<Line> {
+    vec![
+      line![self.left_top() => self.right_top()],
+      line![self.right_top() => self.right_bottom()],
+      line![self.right_bottom() => self.left_bottom()],
+      line![self.left_bottom() => self.left_top()],
     ]
   }
 

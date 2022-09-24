@@ -1,6 +1,6 @@
-use crate::vec2::Vec2;
-use crate::vec3::Vec3;
-use crate::vec4::Vec4;
+use crate::vec::vec2::Vec2;
+use crate::vec::vec3::Vec3;
+use crate::vec::vec4::Vec4;
 
 /// Extension used to consturct a 2d vector.
 pub trait Vec2ConstructionSugarExt<T> {
@@ -55,9 +55,8 @@ impl <T> Vec4ConstructionSugarExt<T> for (T, T, T, T) where T: Clone {
 
 #[allow(unused_imports)]
 mod test {
-  use crate::sugar::Vec3ConstructionSugarExt;
-  use super::Vec2ConstructionSugarExt;
-  use super::super::super::{vec2::Vec2, vec3::Vec3, vec4::Vec4};
+  use super::*;
+  use crate::prelude::*;
 
   #[test]
   fn test_sugar() {
