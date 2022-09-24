@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-
 const DEFAULT_CURSOR_POS: Vec3 = Vec3::new(0., 0., 5.);
 
 pub struct PVZCursorPlugin;
@@ -18,7 +17,7 @@ fn move_cursor(windows: Res<Windows>, mut cursor_query: Query<(&Cursor, &mut Tra
     let window = windows.get_primary().unwrap();
     if let Some(position) = window.cursor_position() {
         let (_, mut transform) = cursor_query.single_mut();
-        transform.translation = Vec3::new(position.x - window.width() / 2.,  position.y - window.height() / 2., transform.translation.z);
+        transform.translation = Vec3::new(position.x - window.width() / 2.,  position.y - window.height() / 2., 100.);
     }
 }
 
