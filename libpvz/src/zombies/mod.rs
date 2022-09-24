@@ -1,7 +1,7 @@
 use crate::marker::*;
 use bevy_ecs::prelude::*;
 use bevy_time::prelude::*;
-use math::vec2::*;
+use bevy_math::prelude::*;
 
 #[derive(Bundle, Debug)]
 pub struct ZombieBundle {

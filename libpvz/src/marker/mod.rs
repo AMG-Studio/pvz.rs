@@ -1,13 +1,13 @@
 use bevy_ecs::prelude::*;
-use math::vec2::*;
+use bevy_math::prelude::*;
 
 #[derive(Component, Debug)]
 pub struct Velocity {
-  pub value: Vec2<f32>,
+  pub value: Vec2,
   pub step: f32,
 }
 #[derive(Component, Debug)]
-pub struct Position(pub Vec2<f32>);
+pub struct Position(pub Vec2);
 #[derive(Component, Debug)]
 pub struct Health(pub f32);
 

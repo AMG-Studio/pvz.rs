@@ -7,6 +7,6 @@ edition = "2021"
 
 [dependencies]
 bevy_ecs = "0.8.1"
+bevy_math = "0.8.1"
 bevy_time = "0.8.1"
-math = { version = "0.1.0", path = "../math" }
 
