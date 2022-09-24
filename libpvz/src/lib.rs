@@ -20,7 +20,6 @@ impl Game {
     world.insert_resource(FixedTimesteps::default());
 
     let schedule = Schedule::default();
-    schedule.add_system_to_stage();
 
     Game {
       world,
